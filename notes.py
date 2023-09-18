@@ -27,3 +27,7 @@ def create_note(title, body):
     notes.append(note)
     save_notes(notes)
     print("Заметка создана успешно!")
+
+def list_notes():
+    for note in notes:
+        print(f"ID: {note['id']}, Заголовок: {note['title']}, Создано: {note['created_at']}")
