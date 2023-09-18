@@ -72,3 +72,25 @@ if __name__ == "__main__":
         print("6. Выйти")
 
         choice = input("Введите номер действия: ")
+
+        if choice == "1":
+            title = input("Введите заголовок заметки: ")
+            body = input("Введите текст заметки: ")
+            create_note(title, body)
+        elif choice == "2":
+            list_notes()
+        elif choice == "3":
+            note_id = int(input("Введите ID заметки: "))
+            read_note(note_id)
+        elif choice == "4":
+            note_id = int(input("Введите ID заметки, которую хотите отредактировать: "))
+            new_title = input("Введите новый заголовок: ")
+            new_body = input("Введите новый текст: ")
+            edit_note(note_id, new_title, new_body)
+        elif choice == "5":
+            note_id = int(input("Введите ID заметки, которую хотите удалить: "))
+            delete_note(note_id)
+        elif choice == "6":
+            break
+        else:
+            print("Некорректный ввод. Пожалуйста, выберите действие из списка.")
