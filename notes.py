@@ -2,6 +2,9 @@ import json
 import os
 import datetime
 
+# Получить текущую директорию, где находится код
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Путь к файлу для хранения заметок
 FILE_PATH = "notes.json"
 
@@ -13,7 +16,10 @@ def load_notes():
         return []
     
 def save_notes(notes):
-    with open(FILE_PATH, "w", encoding="utf-8") as file:
+    # Создайте полный путь к файлу JSON в текущей директории
+    file_path = os.path.join(CURRENT_DIR, FILE_PATH)
+
+    with open(file_path, "w", encoding="utf-8") as file:
         json.dump(notes, file, indent=4, ensure_ascii=False)
 
 def create_note(title, body):
