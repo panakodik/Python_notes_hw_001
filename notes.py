@@ -38,3 +38,23 @@ def read_note(note_id):
             print(f"Заголовок: {note['title']}\nСоздано: {note['created_at']}\nТело: {note['body']}")
             return
     print("Заметка с указанным ID не найдена.")
+
+def edit_note(note_id, new_title, new_body):
+    for note in notes:
+        if note["id"] == note_id:
+            note["title"] = new_title
+            note["body"] = new_body
+            note["updated_at"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            save_notes(notes)
+            print("Заметка отредактирована успешно!")
+            return
+    print("Заметка с указанным ID не найдена.")
+
+def delete_note(note_id):
+    for note in notes:
+        if note["id"] == note_id:
+            notes.remove(note)
+            save_notes(notes)
+            print("Заметка удалена успешно!")
+            return
+    print("Заметка с указанным ID не найдена.")
