@@ -31,3 +31,10 @@ def create_note(title, body):
 def list_notes():
     for note in notes:
         print(f"ID: {note['id']}, Заголовок: {note['title']}, Создано: {note['created_at']}")
+
+def read_note(note_id):
+    for note in notes:
+        if note["id"] == note_id:
+            print(f"Заголовок: {note['title']}\nСоздано: {note['created_at']}\nТело: {note['body']}")
+            return
+    print("Заметка с указанным ID не найдена.")
